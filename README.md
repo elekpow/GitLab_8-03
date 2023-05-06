@@ -29,7 +29,7 @@
 
 Проект My_Project в локальном GitLab
 
-![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/GitLab_newpoject1.png)
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/GitLab_newpoject_1.png)
 
 Настройки раннера в проекте.
 
