@@ -143,6 +143,8 @@ build:
 
 Pipeline with manual run
 
-![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/Pipeline with manual run.png)
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/Pipeline_manual_run.png)
 
+
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/Pipeline_manual_jobs.png)
 
