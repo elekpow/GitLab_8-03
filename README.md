@@ -55,29 +55,94 @@
 
 **Выполнение задания:**
 
+Pipeline
+
+```
+
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  image: golang:1.17
+  script:
+   - go test .
+
+static-analysis:
+ stage: test
+ image:
+  name: sonarsource/sonar-scanner-cli
+  entrypoint: [""]
+ variables:
+ script:
+  - sonar-scanner -Dsonar.projectKey=gitproject -Dsonar.sources=. -Dsonar.host.url=http://gitlab.localdomain:9000 -Dsonar.login=sqp_c9ffd46d29e000ac6fbd79b194cdb9296ef56fc7
 
 
 
+build:
+  stage: build
+  image: docker:latest
+  script:
+   - docker build .
 
- 
----
-## Дополнительные задания* (со звёздочкой)
+```
 
-Их выполнение необязательное и не влияет на получение зачёта по домашнему заданию. Можете их решить, если хотите лучше разобраться в материале.
+Выполненый pipline
 
----
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/Pipelines.png)
 
-### Задание 3*
+Sonar-scanner
 
-Измените CI так, чтобы:
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/pipline_sonarscaner.png)
 
- - этап сборки запускался сразу, не дожидаясь результатов тестов;
- - тесты запускались только при изменении файлов с расширением *.go.
+SonarQube
 
-В качестве ответа добавьте в шаблон с решением файл gitlab-ci.yml своего проекта или вставьте код в соответсвующее поле в шаблоне.
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/Sonarqube.png)
 
 
----
+```
+stages:
+  - test
+  - build
 
-**Выполнение задания:**
+test:
+  stage: test
+  image: golang:1.16
+  script: 
+   - go test .
+
+sonarqube-check:
+ stage: test
+ image:
+  name: sonarsource/sonar-scanner-cli
+  entrypoint: [""]
+ variables:
+ script:
+  - sonar-scanner -Dsonar.projectKey=gitproject -Dsonar.sources=. -Dsonar.host.url=http://gitlab.localdomain:9000 -Dsonar.login=sqp_c9ffd46d29e000ac6fbd79b194cdb9296ef56fc7
+
+build:
+  stage: build
+  image: docker:latest
+  only:
+    - master
+  script:
+   - docker build .
+
+build:
+  stage: build
+  image: docker:latest
+  when: manual
+  except:
+    - master
+  script:
+   - docker build .
+
+```
+
+
+Pipeline with manual run
+
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/Pipeline with manual run.png)
+
 
