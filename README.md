@@ -18,6 +18,23 @@
 **Выполнение задания:**
 
 
+Локальный GitLab
+
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/GitLab_local.png)
+
+Создание проекта в локальном GitLab
+
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/GitLab_newpoject.png)
+
+
+Проект My_Project в локальном GitLab
+
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/GitLab_newpoject1.png)
+
+Настройки раннера в проекте.
+
+![screen1](https://github.com/elekpow/GitLab_8-03/blob/main/Config_runner.png)
+
 
 
 ---
